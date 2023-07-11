@@ -4,7 +4,7 @@ const router = require('express').Router()
 /* GET new Celebrity page */
 router.get('/new-celebrity', (req, res, next) => {
   console.log(req)
-  res.render('celebrities/new-celebrity', { newCeleb })
+  res.render('celebrities/new-celebrity')
 })
 
 // Create a new celebrity
@@ -19,6 +19,7 @@ router.post('/celebrities/new-celebrity', async (req, res, next) => {
     // Redirect to some page
     res.redirect(`/celebrities/new-celebrity${newCelebrity._id}`)
   } catch (error) {
+    res.render("celebrities/new-celebrity");
     console.log(error)
   }
 })
